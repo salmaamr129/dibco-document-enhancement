@@ -55,15 +55,17 @@ source .venv/bin/activate
 ```
 
 Once activated (your prompt should show `(.venv)`), install the
-dependencies:
+dependencies via the pinned requirements file:
 
 ```bash
-pip install opencv-python numpy matplotlib tqdm scikit-image jupyter
+pip install -r requirements.txt
 ```
 
-> A `requirements.txt` would be a nice future addition so this becomes a
-> single `pip install -r requirements.txt`. For now, the explicit list
-> above is the source of truth.
+Equivalent, if you don't want to use the file:
+
+```bash
+pip install opencv-python numpy matplotlib tqdm jupyter
+```
 
 ## 4. Get the DIBCO dataset
 
@@ -145,7 +147,7 @@ troubleshooting.
 4. Update `DATASET_PATH` in the notebook to match the Kaggle mount path
    (usually `/kaggle/input/<dataset-slug>`).
 5. **Run All**. Kaggle already has `opencv-python`, `numpy`,
-   `matplotlib`, `tqdm`, and `scikit-image` pre-installed.
+   `matplotlib`, and `tqdm` pre-installed.
 
 ## 9. Alternative: run on Google Colab
 
@@ -154,7 +156,7 @@ troubleshooting.
 2. Install any missing libraries as the first cell:
 
    ```python
-   !pip install scikit-image tqdm
+   !pip install tqdm
    ```
 
    (`opencv-python`, `numpy`, and `matplotlib` are already on Colab.)
@@ -176,7 +178,6 @@ troubleshooting.
 | Symptom | Likely cause | Fix |
 |---|---|---|
 | `ModuleNotFoundError: No module named 'cv2'` | venv not activated, or `opencv-python` not installed | Re-activate the venv (step 3) and run `pip install opencv-python` |
-| `ModuleNotFoundError: No module named 'skimage'` | `scikit-image` was missed during install | `pip install scikit-image` |
 | `FileNotFoundError` on the dataset path | The notebook still points at the original Kaggle path | Edit `DATASET_PATH` (step 5) to match your local extracted folder |
 | Plots don't render inline in Jupyter | Stale kernel, or `%matplotlib inline` not active | **Kernel -> Restart & Run All**; if it persists, add `%matplotlib inline` near the imports |
 | Notebook is extremely slow | Expected on the full dataset, especially the per-image binarization loop | While developing, slice the file list to the first few images (e.g. `files[:5]`) and only run the full set for the final evaluation |

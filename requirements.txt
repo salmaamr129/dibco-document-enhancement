@@ -1,0 +1,11 @@
+# Runtime dependencies for image-final-project.ipynb.
+# Install with:  pip install -r requirements.txt
+
+opencv-python    # cv2 — core image processing (filtering, morphology, thresholding)
+numpy            # array math underneath everything
+matplotlib       # visualization (side-by-side comparison plots)
+tqdm             # progress bars when iterating over the dataset
+
+# Notebook runtime — only needed if you don't already have Jupyter
+# installed at the system or venv level.
+jupyter

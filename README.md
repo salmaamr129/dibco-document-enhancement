@@ -19,6 +19,18 @@ the ground-truth images that ship with the dataset.
 Sauvola was the best-performing binarization on the DIBCO documents in
 the experiments.
 
+## Results
+
+Final binarization compared with the ground-truth mask:
+
+![Final result vs. ground truth](examples/05-vs-ground-truth.png)
+
+Effect of morphological opening + closing on the Sauvola output:
+
+![Morphological cleanup](examples/04-morphological-cleanup.png)
+
+More stage-by-stage outputs are in [`examples/`](examples/).
+
 ## Tech stack
 
 - Python 3
@@ -37,7 +49,7 @@ the experiments.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install opencv-python numpy matplotlib tqdm scikit-image jupyter
+pip install -r requirements.txt
 jupyter notebook image-final-project.ipynb
 ```
 
@@ -62,6 +74,9 @@ The dataset is not redistributed here — download it from the
 
 ```
 image-final-project.ipynb     The pipeline notebook (outputs cleared)
+requirements.txt              Python deps for the notebook
+PLAYBOOK.md                   Step-by-step setup + verification + troubleshooting
+examples/                     PNG snapshots of each pipeline stage
 README.md                     This file
 .gitignore                    Python / Jupyter ignores
 ```
