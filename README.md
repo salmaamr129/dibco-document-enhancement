@@ -30,6 +30,10 @@ the experiments.
 
 ## Running locally
 
+> For a guided, copy-pasteable walkthrough — venv setup, dataset
+> download, path configuration, Kaggle/Colab alternatives, and
+> troubleshooting — see **[PLAYBOOK.md](PLAYBOOK.md)**.
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
